@@ -15,7 +15,7 @@ server.get("/", (req, res) =>{
 })
 
 server.get("/sobre_nos", (req, res) =>{
-    res.send("<h1 style='text-align: center; font-size: 100px; color:red;'>SOBRE NÓS</h1><script>alert('Funcionou!')</script>")
+    res.send("<h1 style='text-align: center; font-family: roboto; font-size: 100px; color:red;'>SOBRE NÓS</h1><script>alert('Funcionou!')</script>")
 })
 
 // ROTAS DINÂMICAS
@@ -26,7 +26,7 @@ server.get("/noticias/:titulo", (req, res) =>{
 
 server.get("/voos/:origem-:destino", (req, res) =>{
     let {origem , destino} = req.params
-    res.send(`Procurando voos de ${origem} até ${destino}.`)
+    res.send(`Procurando voos de <strong>${origem}</strong> até <strong>${destino}</strong>.`)
 })
 
 console.log("Servidor esta ativo!")
