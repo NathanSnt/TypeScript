@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+</head>
+<body>
+    {{#maior18}}
+        <h1 style="color: green;">{{nome}} tem mais de 18 anos</h1>
+    {{/maior18}}
+    {{^maior18}}
+        <h1 style="color: red;">{{nome}} tem menos de 18 anos</h1>
+    {{/maior18}}
+
+    {{#produtos}}
+    <li>{{.}}</li>
+    {{/produtos}}
+</body>
+</html>

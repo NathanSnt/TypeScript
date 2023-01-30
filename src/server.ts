@@ -2,31 +2,33 @@
 // npm install @types/express
 console.clear()
 
-import express from "express"
-import {Server} from "http"
+import express from 'express'
+import {Server} from 'http'
+import mainRoutes from './routes/index' // Importando as rotas
+import path from 'path'
+import mustache from 'mustache-express'
 
+const port:number = 8080
 const server = express()
-// gerando o servidor na porta 8080
-server.listen(8080)
 
-// ROTAS ESTÁTICAS
-server.get("/", (req, res) =>{
-    res.send("<h1>Olá, mundo!</h1><script>alert('OLÁ');alert('MUNDO')</script>")
+server.set('view engine', 'mustache')
+server.engine('mustache', mustache())
+
+// Usando as rotas
+server.use(mainRoutes)
+
+// Criando uma rota para a pasta public
+server.use(express.static(path.join(__dirname, '../public')))
+// server.use(express.static('./')) rota para a pasta raiz do projeto (manter comentada.)
+
+// Criando rotas para a views
+server.set('views', path.join(__dirname, 'views'))
+
+// Criando rota para página não encontrada
+server.use((req, res) =>{
+    res.status(404).send('Página não encontrada.')
 })
 
-server.get("/sobre_nos", (req, res) =>{
-    res.send("<h1 style='text-align: center; font-family: roboto; font-size: 100px; color:red;'>SOBRE NÓS</h1><script>alert('Funcionou!')</script>")
-})
-
-// ROTAS DINÂMICAS
-server.get("/noticias/:titulo", (req, res) =>{
-    let titulo:string = req.params.titulo
-    res.send(`Notícia: ${titulo}`)
-})
-
-server.get("/voos/:origem-:destino", (req, res) =>{
-    let {origem , destino} = req.params
-    res.send(`Procurando voos de <strong>${origem}</strong> até <strong>${destino}</strong>.`)
-})
-
-console.log("Servidor esta ativo!")
+// Gerando o servidor na porta 8080
+server.listen(port)
+console.log(`Servidor está rodando em: localhost:${port}`)
