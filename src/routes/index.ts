@@ -1,3 +1,4 @@
+import { on } from "events"
 import {Router, Request, Response} from "express"
 
 const router: Router = Router()
@@ -19,6 +20,7 @@ router.get("/", (req: Request, res: Response) =>{
 
 // rota para página de idade
 router.get('/idade', (req: Request, res: Response) =>{
+    // let idade: number = parseInt(prompt('Informe a sua idade:'))
     let idade: number = 20
     let maior18: boolean = false
 
@@ -28,13 +30,13 @@ router.get('/idade', (req: Request, res: Response) =>{
     res.render('idade', {
         maior18,
         nome: 'Nathan',
-        produtos: [
-            'Mouse',
-            'Leite em Pó',
-            'Desodorante',
-            'Lustra Imóveis',
-            'Sabão em Pó'
-        ]
+        // produtos: [
+        //     'Mouse',
+        //     'Leite em Pó',
+        //     'Desodorante',
+        //     'Lustra Imóveis',
+        //     'Sabão em Pó'
+        // ]
     })
 })
 

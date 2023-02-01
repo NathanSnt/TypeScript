@@ -15,7 +15,11 @@
     {{/maior18}}
 
     {{#produtos}}
-    <li>{{.}}</li>
+        <li>{{.}}</li>
     {{/produtos}}
+    {{^produtos}}
+        <p>Não temos produtos no momento.</p>
+    {{/produtos}}
+
 </body>
 </html>
