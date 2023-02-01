@@ -12,7 +12,7 @@ router.get("/", (req: Request, res: Response) =>{
     //     idade : 22
     // }
 
-    res.render('home', {
+    res.render('pages/home', {
         nome: 'Nathan',
         showWelcome: false
     })
@@ -20,14 +20,13 @@ router.get("/", (req: Request, res: Response) =>{
 
 // rota para página de idade
 router.get('/idade', (req: Request, res: Response) =>{
-    // let idade: number = parseInt(prompt('Informe a sua idade:'))
     let idade: number = 20
     let maior18: boolean = false
 
     if (idade >= 18){
         maior18 = true
     }
-    res.render('idade', {
+    res.render('pages/idade', {
         maior18,
         nome: 'Nathan',
         // produtos: [
@@ -42,7 +41,7 @@ router.get('/idade', (req: Request, res: Response) =>{
 
 // Rotas contatos (Desafio)
 router.get('/contato', (req: Request, res: Response) =>{
-    res.render('contato')
+    res.render('pages/contato')
 })
 
 router.get("/sobre_nos", (req: Request, res: Response) =>{
