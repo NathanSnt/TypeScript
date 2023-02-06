@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/nascimento.css">
+
+{{>partials/header}}
+
+<div id="card">
+    <form method="GET" id="form">
+        Informe em que ano você nasceu:
+        <input type="number" name="ano_nascimento">
+        <input type="submit" value="Enviar">
+    </form>
+    <div id="resultado">
+        {{#idade}}
+            <p>Você tem {{idade}} anos de idade.</p>
+        {{/idade}}
+    </div>
+</div>
+
+{{>partials/footer}}
