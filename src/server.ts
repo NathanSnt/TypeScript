@@ -29,6 +29,9 @@ server.use((req, res) =>{
     res.status(404).send('Página não encontrada.')
 })
 
+// Habilitando criptografia (Usando o método POST)
+server.use(express.urlencoded({extended:true}))
+
 // Gerando o servidor na porta 8080
 server.listen(port)
 console.log(`Servidor está rodando em: localhost:${port}`)
