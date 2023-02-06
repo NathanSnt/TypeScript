@@ -8,8 +8,7 @@ body {
 }
 
 #navegationList {
-    display: flex; 
-    /* align-items: center; */
+    display: flex;
     justify-content: center;
     padding: 5px;
 }

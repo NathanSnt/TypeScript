@@ -39,6 +39,36 @@ router.get('/idade', (req: Request, res: Response) =>{
     })
 })
 
+// Receber conteúdos de formulários
+router.get('/nome', (req: Request, res: Response) =>{
+    let nome: string = req.query.nome as string
+
+    res.render('pages/nome', {
+        nome
+    })
+})
+// Receber conteúdos de formulários (desafio)
+router.get('/formulario', (req: Request, res: Response) => {
+    let nome: string = req.query.nome as string
+    let idade: number = req.query.idade as unknown as number
+    let telefone: string = req.query.telefone as string
+    let endereco: string = req.query.endereco as string
+    let valido: boolean = false
+
+    if (nome && idade && telefone && endereco){
+        valido = true
+    }
+
+    res.render('pages/formulario', {
+        nome, 
+        idade,
+        telefone,
+        endereco,
+        valido
+    })
+})
+
+
 // Rotas contatos (Desafio)
 router.get('/contato', (req: Request, res: Response) =>{
     res.render('pages/contato')

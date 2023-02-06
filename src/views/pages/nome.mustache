@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/nome.css">
+
+{{>partials/header}}
+
+<div id="card">
+    <h2>Qual seu nome?</h2>
+    <form method="GET" id="form">
+        <input type="text" name="nome"><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <div id="resultado">
+        {{#nome}}
+            <p>Olá {{nome}}, seja bem vindo.</p>
+        {{/nome}}
+    </div>
+</div>
+
+
+{{>partials/footer}}
