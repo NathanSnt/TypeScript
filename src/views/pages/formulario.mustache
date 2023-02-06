@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/formulario.css">
+
+{{>partials/header}}
+
+<div id="card">
+    <form method="GET" id="form">
+        <input type="text" name="nome" placeholder="Informe o seu nome">
+        <input type="number" name="idade" placeholder="Informe a sua idade">
+        <input type="text" name="telefone" placeholder="Informe o seu telefone">
+        <input type="text" name="endereco" placeholder="Informe o seu endereço">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="resultado">
+                        
+        {{#valido}}
+            <h2>Confirme seus dados</h2>
+            <p><strong>Nome:</strong> {{nome}}</p>
+            <p><strong>Idade:</strong> {{idade}}</p>
+            <p><strong>Telefone:</strong> {{telefone}}</p>
+            <p><strong>Endereço:</strong> {{endereco}}</p>
+        {{/valido}}
+        
+    </div>
+</div>
+
+{{>partials/footer}}
