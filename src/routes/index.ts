@@ -40,12 +40,14 @@ router.get('/idade', (req: Request, res: Response) =>{
 })
 // Receber ano de nascimento em formulário e calcular a idade
 router.get('/nascimento', (req: Request, res: Response) => {
-    let ano_nascimento: number = req.query.ano_nascimento as unknown as number
+    res.render('pages/nascimento')
+})
+router.post('/nascimento', (req: Request, res: Response) => {
+    let ano_nascimento: number = req.body.ano_nascimento as unknown as number
     let idade: number = 2023 - ano_nascimento
     if (idade == 2023){
         idade = 0
     }
-
     res.render('pages/nascimento', {
         idade
     })
