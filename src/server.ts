@@ -7,8 +7,10 @@ import {Server} from 'http'
 import mainRoutes from './routes/index' // Importando as rotas
 import path from 'path'
 import mustache from 'mustache-express'
+import dotenv from 'dotenv'
 
-const port:number = 8080
+dotenv.config()
+
 const server = express()
 
 server.set('view engine', 'mustache')
@@ -33,5 +35,5 @@ server.use((req, res) =>{
 server.use(express.urlencoded({extended:true}))
 
 // Gerando o servidor na porta 8080
-server.listen(port)
-console.log(`Servidor está rodando em: localhost:${port}`)
+server.listen(process.env.PORT)
+console.log(`Servidor está rodando em: localhost:${process.env.PORT}`)
