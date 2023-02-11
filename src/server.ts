@@ -8,6 +8,7 @@ import mainRoutes from './routes/index' // Importando as rotas
 import path from 'path'
 import mustache from 'mustache-express'
 import dotenv from 'dotenv'
+import * as bodyParser from 'body-parser'
 
 dotenv.config()
 
@@ -15,6 +16,10 @@ const server = express()
 
 server.set('view engine', 'mustache')
 server.engine('mustache', mustache())
+
+// server.use(bodyParser.json())
+// server.use(bodyParser.urlencoded({ extended: true}))
+server.use(express.urlencoded({extended:true}))
 
 // Usando as rotas
 server.use(mainRoutes)
@@ -31,8 +36,8 @@ server.use((req, res) =>{
     res.status(404).send('Página não encontrada.')
 })
 
-// Habilitando criptografia (Usando o método POST)
-server.use(express.urlencoded({extended:true}))
+// Habilitando criptografia (Usando o método POST) (COLOCAR ANTES DE DEFINIR AS ROTAS!)
+// server.use(express.urlencoded({extended:true}))
 
 // Gerando o servidor na porta 8080
 server.listen(process.env.PORT)
